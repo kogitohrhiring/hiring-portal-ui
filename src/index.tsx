@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './components/TestComponent/TestComponent';
+import PublishedJobPage from './components/templates/PublishedJobPage';
 
 
-ReactDOM.render(<Test />,document.getElementById('root'));
+
+ReactDOM.render(<PublishedJobPage />,document.getElementById('root'));
