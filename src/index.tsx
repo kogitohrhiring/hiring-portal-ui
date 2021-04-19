@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PublishedJobView from './components/publishedJobs/publishedJobView';
+import PublishedJobTable from './components/PublishedJobTable/PublishedJobTable';
 
 
-ReactDOM.render(<PublishedJobView />,document.getElementById('root'));
+
+ReactDOM.render(<PublishedJobTable />,document.getElementById('root'));
