@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PublishedJobTable from './components/PublishedJobTable/PublishedJobTable';
+import PublishedJobPage from './components/templates/PublishedJobPage';
 
 
 
-ReactDOM.render(<PublishedJobTable />,document.getElementById('root'));
+ReactDOM.render(<PublishedJobPage />,document.getElementById('root'));
