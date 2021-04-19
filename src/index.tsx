@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Test from './components/TestComponent/TestComponent';
+import PublishedJobView from './components/publishedJobs/publishedJobView';
 
 
-ReactDOM.render(<Test />,document.getElementById('root'));
+ReactDOM.render(<PublishedJobView />,document.getElementById('root'));

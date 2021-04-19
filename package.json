@@ -12,22 +12,28 @@
     "@patternfly/react-core": "^4.106.2",
     "@patternfly/react-icons": "^4.9.9",
     "@patternfly/react-styles": "^4.9.4",
+    "@patternfly/react-table": "^4.24.1",
     "@patternfly/react-tokens": "^4.10.9",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@types/react-router-dom": "^5.1.7",
+    "css-loader": "^5.2.2",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.9.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "^5.2.0",
+    "ts-loader": "^6.0.4",
+    "tsconfig-paths-webpack-plugin": "^3.2.0",
     "typescript": "^4.2.4",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0",
-    "webpack-merge": "^4.2.2",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
-    "tsconfig-paths-webpack-plugin": "^3.2.0",
-    "ts-loader": "^6.0.4"
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "style-loader": "^2.0.0"
   }
 }
