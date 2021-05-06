@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const BG_IMAGES_DIRNAME = 'bgimages';
 
 module.exports = {
     entry: {
@@ -29,29 +30,87 @@ module.exports = {
                 ]
             },
             {
-                test: /\.css$/i,
-                use: ["style-loader", "css-loader"],
-            },
-            {
-                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                test: /\.(svg|ttf|eot|woff|woff2)$/,
+                include: [
+                  path.resolve('./node_modules/patternfly/dist/fonts'),
+                  path.resolve(
+                    './node_modules/@patternfly/react-core/dist/styles/assets/fonts'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/react-core/dist/styles/assets/pficon'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/patternfly/assets/fonts'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/patternfly/assets/pficon'
+                  ),
+                  path.resolve('./src/static')
+                ],
+                use: {
+                  loader: 'file-loader',
+                  options: {
+                    // Limit at 50k. larger files emited into separate files
+                    limit: 5000,
+                    outputPath: 'fonts',
+                    name: '[name].[ext]'
+                  }
+                }
+              },
+              {
+                test: /\.svg$/,
+                include: input => input.indexOf('background-filter.svg') > 1,
                 use: [
                   {
-                    loader: 'file-loader',
+                    loader: 'url-loader',
                     options: {
-                      name: '[name].[ext]',
-                      outputPath: 'fonts/'
+                      limit: 5000,
+                      outputPath: 'svgs',
+                      name: '[name].[ext]'
                     }
                   }
                 ]
-            },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
+              },
+              {
+                test: /\.svg$/,
+                include: input => input.indexOf(BG_IMAGES_DIRNAME) > -1,
+                use: {
+                  loader: 'svg-url-loader',
+                  options: {}
+                }
+              },
+              {
+                test: /\.(jpg|jpeg|png|gif)$/i,
+                include: [
+                  path.resolve(__dirname, 'src'),
+                  path.resolve('./node_modules/patternfly'),
+                  path.resolve(
+                    './node_modules/@patternfly/patternfly/assets/images'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/react-styles/css/assets/images'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/react-core/dist/styles/assets/images'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/react-core/node_modules/@patternfly/react-styles/css/assets/images'
+                  ),
+                  path.resolve(
+                    './node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css/assets/images'
+                  )
+                ],
                 use: [
                   {
-                    loader: 'file-loader',
-                  },
-                ],
-            }
+                    loader: 'url-loader',
+                    options: {
+                      limit: 5000,
+                      outputPath: 'images',
+                      name: '[name].[ext]'
+                    }
+                  }
+                ]
+              }
         ]
     },
     output: {
