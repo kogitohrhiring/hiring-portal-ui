@@ -40,7 +40,8 @@ module.exports = merge(common, {
                     path.resolve(
                         './node_modules/@patternfly/react-table/node_modules/@patternfly/react-styles/css'
                     )
-                ]
+                ],
+                use: ['style-loader', 'css-loader']
             }
         ]
     },
