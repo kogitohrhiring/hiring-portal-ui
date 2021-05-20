@@ -18,6 +18,7 @@ app.use(
     })
   );
   app.get('/jobs', controller.getJobs)
+  app.get('jobs/:id', controller.getjob)
 function setPort(port = 4000) {
     app.set('port', parseInt(port, 10));
   }

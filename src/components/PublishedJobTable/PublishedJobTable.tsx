@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
 import { getPublishedJobList } from '../../services/jobService'
 import "@patternfly/react-core/dist/styles/base.css";
+import { useHistory } from 'react-router';
 
 interface IOwnProps {
 
@@ -10,6 +11,7 @@ interface IOwnProps {
 const PublishedJobTable: React.FC<IOwnProps> = ({ }) => {
   const [columns, setColumns] = useState<string[]>(['Id', 'Name', 'Location', 'Category', 'Job Summary']);
   const [rows, setRows] = useState<string[][]>([]);
+  const history = useHistory();
   console.log('test', setColumns)
 
   useEffect(() => {    
@@ -28,7 +30,7 @@ const PublishedJobTable: React.FC<IOwnProps> = ({ }) => {
     return [
       {
         title: 'view',
-        onClick: (event, rowId, rowData, extra) => console.log('clicked on view action, on row: ', rowId)
+        onClick: (event, rowId, rowData, extra) => history.push('/jobs/' + rowData['0'])
       },      
       {
         title: 'edit',
