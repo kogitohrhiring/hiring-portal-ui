@@ -24,7 +24,7 @@ module.exports = merge(common, {
             {
                 test: /\.css$/,
                 include: [
-                    path.resolve(__dirname,'src'),
+                    path.resolve(__dirname, 'src'),
                     path.resolve('./node_modules/patternfly'),
                     path.resolve('./node_modules/@patternfly/patternfly'),
                     path.resolve('./node_modules/@patternfly/react-styles/css'),
@@ -48,8 +48,8 @@ module.exports = merge(common, {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
         modules: [
-          path.resolve('./node_modules'),
-          path.resolve('./src')
+            path.resolve('./node_modules'),
+            path.resolve('./src')
         ]
-      }
+    }
 })

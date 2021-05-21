@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import PublishedJobPage from './components/templates/PublishedJobPage';
+import App from './components/App';
+import '@patternfly/patternfly/patternfly.css';
 
 
 
-ReactDOM.render(<PublishedJobPage />,document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById('root'));

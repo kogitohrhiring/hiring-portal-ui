@@ -13,7 +13,7 @@ class PublishedJobPage extends Component {
                     <Title headingLevel="h1" size={TitleSizes['4xl']}>
                         Publish Job
                     </Title>                    
-                    <Divider />                    
+                    <Divider />
                     <Button type="submit" >Create Job</Button>                                       
                     <Divider />
                     <Title headingLevel="h1" size={TitleSizes['3xl']}>
