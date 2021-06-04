@@ -1,8 +1,9 @@
-import { Nav, NavItem, NavList, Page, PageHeader, PageHeaderTools, PageSidebar, Switch } from '@patternfly/react-core';
+import { Nav, NavItem, NavList, Page, PageHeader, PageHeaderTools, PageSidebar } from '@patternfly/react-core';
 import React, { useState } from 'react';
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import ApplyJobPage from '../ApplyJobPage/ApplyJobPage';
 import PublishedJobPage from '../PublishedJobPage/PublishedJobPage';
+import EasyRecruitLogo from '../../../static/EasyRecruitLogo.svg';
 
 const PageLayout = (props) => {
     const { pathname } = props.location;
@@ -26,10 +27,11 @@ const PageLayout = (props) => {
         setIsNavOpen(!isNavOpen);
     };
     const pageId = 'main-content-page-layout-default-nav';
+    console.log('EasyRecruitLogo', EasyRecruitLogo)
 
     const Header = (
         <PageHeader
-            logo={''}
+            logo={EasyRecruitLogo}
             headerTools={
                 <PageHeaderTools>
                     {/* <aboutLogoContext.Provider value={BrandSrc}>
