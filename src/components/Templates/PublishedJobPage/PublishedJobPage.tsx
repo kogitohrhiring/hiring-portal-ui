@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import PublishedJobTable from "../PublishedJobTable/PublishedJobTable";
+import { PublishedJobTable } from "../../Organisms";
 import { Title, TitleSizes, Button, Divider } from '@patternfly/react-core';
 
 class PublishedJobPage extends Component {

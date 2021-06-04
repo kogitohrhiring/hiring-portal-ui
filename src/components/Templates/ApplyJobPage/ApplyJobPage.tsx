@@ -1,7 +1,7 @@
 import React from 'react';
 import { Component } from "react";
 import { Title, TitleSizes, Button, Divider } from '@patternfly/react-core';
-import JobInfo from 'src/components/JobInfo/JobInfo';
+import { JobInfo } from '../../Organisms';
 import { RouteComponentProps } from 'react-router';
 
 class ApplyJobPage extends Component<RouteComponentProps> {
