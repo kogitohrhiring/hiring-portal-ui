@@ -1,7 +1,9 @@
 import React from "react";
 import { Component } from "react";
 import { PublishedJobTable } from "../../Organisms";
-import { Title, TitleSizes, Button, Divider } from '@patternfly/react-core';
+import { Title, TitleSizes, Button, PageSection, 
+    // Toolbar, ToolbarGroup, ToolbarContent, ToolbarItem 
+} from '@patternfly/react-core';
 
 class PublishedJobPage extends Component {
 
@@ -9,19 +11,29 @@ class PublishedJobPage extends Component {
         return (
             <div id='publishedJobView'>
                 <br/>
-                <React.Fragment>
+                <PageSection variant="light">
                     <Title headingLevel="h1" size={TitleSizes['4xl']}>
-                        Publish Job
+                        Publish Jobs
                     </Title>                    
-                    <Divider />
-                    <Button type="submit" >Create Job</Button>                                       
-                    <Divider />
-                    <Title headingLevel="h1" size={TitleSizes['3xl']}>
-                        View Publish Jobs
-                    </Title>                
-                    <Divider />
+                </PageSection>
+                {/* <Toolbar
+        id="data-toolbar-with-chip-groups"
+        className="pf-m-toggle-group-container"
+        collapseListedFiltersBreakpoint="md"
+        
+      >
+          <ToolbarContent>
+            <ToolbarGroup>
+                <ToolbarItem> */}
+                <Button type="submit" >Create Job</Button>              
+                {/* </ToolbarItem>
+            </ToolbarGroup>
+          </ToolbarContent>
+      </Toolbar> */}
+                
+                <PageSection>
                     <PublishedJobTable/>
-                </React.Fragment>
+                </PageSection>
             </div>
         );
     }
