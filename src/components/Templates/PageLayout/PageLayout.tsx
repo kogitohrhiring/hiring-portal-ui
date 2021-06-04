@@ -9,25 +9,11 @@ const PageLayout = (props) => {
     const PageNav = (
         <Nav aria-label="Nav" theme="dark" ouiaId="navigation-list">
             <NavList>
-                <NavItem isActive={pathname === '/ProcessInstances'}>
+                <NavItem isActive={pathname === '/jobs'}>
                     <Link
-                        to="/ProcessInstances"
+                        to="/jobs"
                     >
-                        Process Instances
-              </Link>
-                </NavItem>
-                <NavItem isActive={pathname === '/DomainExplorer'}>
-                    <Link
-                        to="/DomainExplorer"
-                    >
-                        Domain Explorer
-              </Link>
-                </NavItem>
-                <NavItem isActive={pathname === '/JobsManagement'}>
-                    <Link
-                        to="/JobsManagement"
-                    >
-                        Jobs
+                        Publish Jobs
               </Link>
                 </NavItem>
             </NavList>
