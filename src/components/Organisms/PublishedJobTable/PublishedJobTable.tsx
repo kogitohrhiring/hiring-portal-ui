@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
-import { getPublishedJobList } from '../../services/jobService'
+import { getPublishedJobList } from '../../../services/jobService'
 import "@patternfly/react-core/dist/styles/base.css";
 import { useHistory } from 'react-router';
 
