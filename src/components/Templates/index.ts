@@ -1,4 +1,4 @@
-// export componets from here
+// export components from here
 
 export { default as ApplyJobPage } from './ApplyJobPage/ApplyJobPage';
 export { default as PublishedJobPage } from './PublishedJobPage/PublishedJobPage';

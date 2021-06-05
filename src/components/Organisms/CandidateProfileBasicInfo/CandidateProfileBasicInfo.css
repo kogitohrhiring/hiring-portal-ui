@@ -1,0 +1,14 @@
+.candidate-profile-basic-info {
+    padding: 30px 30px !important;
+}
+
+.candidate-profile-basic-info .pf-c-content {
+    margin-top: 20px;
+}
+
+.candidate-profile-basic-info blockquote {
+    border: 0px !important;
+    font-weight: 600;
+    padding: 0px !important;
+    display: inline;
+}

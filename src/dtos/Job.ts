@@ -4,4 +4,6 @@ export interface Job {
     location: string;
     category: string;
     jobSummary: string;
+    responsibilites?: string[];
+    skills?: string[];
 }

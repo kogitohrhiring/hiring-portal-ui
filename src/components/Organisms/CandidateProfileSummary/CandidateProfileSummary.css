@@ -1,0 +1,47 @@
+.candidate-profile-avatar-style {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.candidate-profile-avatar-style img {
+    margin-top: 20px;
+    height: 150px;
+    width: 150px;
+    border: 0.1px solid;
+}
+
+.candidate-profile-avatar-style h6:first-of-type {
+    color: #1E90FF;
+    font-weight: 600 !important;
+}
+
+.candidate-profile-avatar-style h6:nth-of-type(2) {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.candidate-profile-skills {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+}
+
+.candidate-profile-notes {
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-bottom: 20px;
+}
+
+.candidate-profile-skills ul {
+    margin-top: 10px;
+}
+
+.candidate-profile-skills li {
+    font-size: 16px;
+}
+
+.candidate-profile-card-style {
+    width: 500px !important;
+}

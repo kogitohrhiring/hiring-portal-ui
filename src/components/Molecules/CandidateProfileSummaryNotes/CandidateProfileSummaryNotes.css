@@ -1,0 +1,11 @@
+.candidate-profile-notes textarea {
+    margin-top: 20px !important;
+    height: 200px !important;
+    width: 500px;
+}
+
+.candidate-profile-notes button {
+    margin-top: 20px !important;
+    text-align: center;
+    width: 440px;
+}

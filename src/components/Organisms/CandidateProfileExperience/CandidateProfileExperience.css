@@ -1,0 +1,27 @@
+.candidate-profile-experience-accordion {
+    margin-bottom: 0px !important;
+}
+
+#ex-toggle1 {
+    padding-left: 30px;
+}
+
+#ex-toggle1:hover {
+    background-color: #FFF !important;
+    padding-left: 30px;
+}
+
+.candidate-profile-experience {
+    padding-left: 15px !important;
+}
+
+.candidate-profile-experience h6 {
+    color: rgb(0, 102, 204);
+    font-weight: 600 !important;
+}
+
+.candidate-profile-experience  blockquote {
+    border: 0px !important;
+    margin-bottom: 0px !important;
+    padding: 0px !important;
+}

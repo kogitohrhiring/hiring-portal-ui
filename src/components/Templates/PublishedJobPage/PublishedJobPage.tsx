@@ -1,42 +1,20 @@
 import React from "react";
-import { Component } from "react";
 import { PublishedJobTable } from "../../Organisms";
-import { Title, TitleSizes, Button, PageSection, 
-    // Toolbar, ToolbarGroup, ToolbarContent, ToolbarItem 
-} from '@patternfly/react-core';
+import { PageTitle } from '../../Atoms';
+import { Button, PageSection } from '@patternfly/react-core';
 
-class PublishedJobPage extends Component {
-
-    render(){
+const PublishedJobPage = () => {
         return (
             <div id='publishedJobView'>
-                <br/>
                 <PageSection variant="light">
-                    <Title headingLevel="h1" size={TitleSizes['4xl']}>
-                        Publish Jobs
-                    </Title>                    
+                    <PageTitle title='Publish Jobs' />
                 </PageSection>
-                {/* <Toolbar
-        id="data-toolbar-with-chip-groups"
-        className="pf-m-toggle-group-container"
-        collapseListedFiltersBreakpoint="md"
-        
-      >
-          <ToolbarContent>
-            <ToolbarGroup>
-                <ToolbarItem> */}
-                <Button type="submit" >Create Job</Button>              
-                {/* </ToolbarItem>
-            </ToolbarGroup>
-          </ToolbarContent>
-      </Toolbar> */}
-                
+                <Button type="submit" >Create Job</Button>               
                 <PageSection>
                     <PublishedJobTable/>
                 </PageSection>
             </div>
         );
-    }
 }
 
-export default PublishedJobPage
+export default PublishedJobPage;

@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build:prod": "webpack --config webpack.prod.js",
-    "start": "webpack-dev-server --hot --color --progress --info=true --config webpack.dev.js",
+    "start": "webpack-dev-server --content-base src --hot --color --progress --info=true --config webpack.dev.js",
     "dev:server": "nodemon ./server/app.js",
     "dev": "concurrently 'yarn  start' 'yarn run dev:server'"
   },
