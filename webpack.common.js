@@ -45,7 +45,7 @@ module.exports = {
                   path.resolve(
                     './node_modules/@patternfly/patternfly/assets/pficon'
                   ),
-                  path.resolve('./src/static')
+                  path.resolve('./src/static/')
                 ],
                 use: {
                   loader: 'file-loader',

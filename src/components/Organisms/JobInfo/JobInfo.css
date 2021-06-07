@@ -1,0 +1,14 @@
+.apply-job-badge-style {
+    font-size: 16px !important;
+    margin-right: 10px !important;
+}
+
+.apply-job-button-grid-style {
+    text-align: center;
+    padding-top: 20px;
+    border: 1px inset;
+}
+
+.apply-job-button-style {
+    padding: 10px 140px !important;
+}

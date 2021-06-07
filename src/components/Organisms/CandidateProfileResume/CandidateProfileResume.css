@@ -1,0 +1,14 @@
+#candidate-profile-resume-accordion textarea {
+    padding-right: 15px !important;
+    height: 400px !important;
+    margin-top: 20px;
+}
+
+#ex-toggle3 {
+    padding-left: 30px;
+}
+
+#ex-toggle3:hover {
+    background-color: #FFF !important;
+    padding-left: 30px;
+}
