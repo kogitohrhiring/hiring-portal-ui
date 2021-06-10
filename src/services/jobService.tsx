@@ -15,3 +15,13 @@ import config from '../config/config.json';
     return fetch(config.SERVER_URL + config.URL_SEPARATOR + 'jobs' + config.URL_SEPARATOR + jobId)
             .then(data => data.json());
   }
+
+  export const publishJob =(job:Job) =>{
+    return fetch(config.SERVER_URL + config.URL_SEPARATOR + 'job',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(job),
+    }).then(response => response.status)
+  }
