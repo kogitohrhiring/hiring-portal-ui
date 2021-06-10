@@ -33,5 +33,8 @@ module.exports = controller = {
                 ]
             }
         );
+    },
+    publishJob:(req,res) =>{
+        res.send();
     }
 }
