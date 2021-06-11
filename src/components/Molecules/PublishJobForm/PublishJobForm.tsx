@@ -11,11 +11,11 @@ const PublishJobForm: React.FC<IPublishJobForm> = ({
     isFormOpen,
     handleFormModal
 }) => {
-    const [jobId, setJobId] = useState<string>('');
     const [jobName, setJobName] = useState<string>('');
     const [jobLocation, setJobLocation] = useState<string>('');
     const [jobCategory, setJobCategory] = useState<string>('');
     const [jobSummary, setJobSummary] = useState<string>('');
+    const [jobInterviewProcess, setJobInterviewProcess] = useState<string>('');
     const categories = [
         { value: 'Category', label: 'Please Choose', disabled: false },
         { value: 'Associate SE', label: 'Associate SE', disabled: false },
@@ -30,20 +30,22 @@ const PublishJobForm: React.FC<IPublishJobForm> = ({
         setJobCategory(value);
     }
     const clearForms = (): void => {
-        setJobId('');
         setJobName('');
         setJobCategory('');
         setJobLocation('');
         setJobSummary('');
+        setJobInterviewProcess('');
     };
 
     const createJob = async () => {
         const job = {
-            id: jobId,
+            id: '',
             name: jobName,
             location: jobLocation,
             category: jobCategory,
-            jobSummary
+            jobSummary: jobSummary,
+            interviewProcess: jobInterviewProcess,
+
         };
         await publishJob(job);
         clearForms();
@@ -65,21 +67,6 @@ const PublishJobForm: React.FC<IPublishJobForm> = ({
         ]}
     >
         <Form id="create-job-form">
-            <FormGroup
-                label="Job ID"
-                isRequired
-                fieldId="hiring-job-id"
-            >
-                <TextInput
-                    isRequired
-                    type="text"
-                    id="hiring-job-id-input"
-                    name="hiring-job-id"
-                    aria-describedby="hiring-job-id"
-                    value={jobId}
-                    onChange={setJobId}
-                />
-            </FormGroup>
             <FormGroup
                 label="Job Name"
                 isRequired
@@ -127,6 +114,21 @@ const PublishJobForm: React.FC<IPublishJobForm> = ({
                 <InputGroup>
                     <TextArea name="hiring-job-summary" id="hiring-job-summary" aria-label="job summary text area" onChange={setJobSummary} />
                 </InputGroup>
+            </FormGroup>
+            <FormGroup
+                label="Interview Process"
+                isRequired
+                fieldId="hiring-job-interview-process"
+            >
+                <TextInput
+                    isRequired
+                    type="text"
+                    id="hiring-job-interview-process-input"
+                    name="hiring-job-interview-process"
+                    aria-describedby="hiring-job-interview-process"
+                    value={jobInterviewProcess}
+                    onChange={setJobInterviewProcess}
+                />
             </FormGroup>
         </Form>
     </Modal>

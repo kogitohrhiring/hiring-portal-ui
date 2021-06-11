@@ -1,2 +1,7 @@
 node_modules/
 dist/
+.idea/hiring-portal-ui.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/.gitignore

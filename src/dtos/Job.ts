@@ -3,7 +3,6 @@ export interface Job {
     name : string;
     location: string;
     category: string;
-    jobSummary: string;
-    responsibilites?: string[];
-    skills?: string[];
+    jobSummary: string;    
+    interviewProcess: string;
 }

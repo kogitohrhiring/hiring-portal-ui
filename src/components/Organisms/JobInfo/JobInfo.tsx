@@ -42,33 +42,7 @@ const JobInfo: React.FC<IOwnProps> = ({id}) => {
                             { jobInfo ? jobInfo.jobSummary : "A Sample Description"} 
                         </Text>        
                     </TextContent>
-                </GridItem>
-                <GridItem span={12}>
-                    <Title headingLevel = "h4" size = "xl">
-                        Primary job responsibilities
-                    </Title>
-                    <br/>
-                    <TextContent> 
-                        <TextList>
-                            { jobInfo ? jobInfo.responsibilites.map(
-                                (data, index) => <TextListItem key={index}>{data}</TextListItem>
-                            ) : "A Sample responsibilites"} 
-                        </TextList>        
-                    </TextContent>
-                </GridItem>
-                <GridItem span={12}>
-                    <Title headingLevel = "h4" size = "xl">
-                        Required skills
-                    </Title>
-                    <br/>
-                    <TextContent> 
-                        <TextList>
-                            { jobInfo ? jobInfo.skills.map(
-                                (data, index) => <TextListItem key={index}>{data}</TextListItem>
-                            ) : "A Sample Skills"} 
-                        </TextList>        
-                    </TextContent>
-                </GridItem>
+                </GridItem>                
             </Grid>
         </React.Fragment >
     );
