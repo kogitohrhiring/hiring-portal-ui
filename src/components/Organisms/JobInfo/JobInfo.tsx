@@ -1,4 +1,4 @@
-import { Badge, Grid, GridItem, TextContent, TextVariants, Title, TitleSizes, Text, TextList, TextListItem, Button } from '@patternfly/react-core';
+import { Badge, Grid, GridItem, TextContent, TextVariants, Title, TitleSizes, Text, Button } from '@patternfly/react-core';
 import React, { useEffect, useState } from 'react';
 import { Job } from 'src/dtos/Job';
 import { getJobDetails } from "src/services/jobService";

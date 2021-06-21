@@ -1,0 +1,11 @@
+{
+  "realm": "hiring-demo",
+  "auth-server-url": "http://localhost:8080/auth",
+  "ssl-required": "external",
+  "resource": "demo",
+  "public-client": true,
+  "verify-token-audience": true,
+  "use-resource-role-mappings": true,
+  "registrationAllowed" : true,
+  "confidential-port": 0
+}

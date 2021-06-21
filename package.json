@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "@patternfly/patternfly": "^4.103.6",
+    "keycloak-js": "^14.0.0",
     "style-loader": "^2.0.0",
     "svg-url-loader": "^7.1.1",
     "url-loader": "^4.1.1"
