@@ -1,5 +1,6 @@
 import { Job } from '../dtos/Job';
 import config from '../config/config.json';
+import axios from 'axios';
 
   export const getPublishedJobList = () : Promise<Job[]> => { 
     return fetch(config.SERVER_URL + config.URL_SEPARATOR + 'jobs')
@@ -19,4 +20,26 @@ import config from '../config/config.json';
       },
       body: JSON.stringify(job),
     }).then(response => response.status)
+  };
+
+  export const onGoingInterviews = async(setData, setIsLoading) => {
+    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'ongoingInteviews')
+    .then((res) => {
+      setData([...res.data])
+      setIsLoading(false);
+    })
+    .catch (error => {
+      return error;
+    })
+  }
+
+  export const interviewFeedbacks = async(interviewId, setData, setIsLoading) => {
+    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'interviewFeedback/' + interviewId)
+    .then((res) => {
+      setData([...res.data])
+      setIsLoading(false);
+    })
+    .catch (error => {
+      return error;
+    })
   }
