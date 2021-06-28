@@ -20,9 +20,9 @@ keycloak.init({ onLoad: 'login-required' }).then((authenticated) => {
     //React Render on authentication
     ReactDOM.render(<App />, document.getElementById('root'));
 
-    //store authentication tokens in sessionStorage
-    sessionStorage.setItem('authentication', keycloak.token);
-    sessionStorage.setItem('refreshToken', keycloak.refreshToken);
+    //store authentication tokens in localStorage
+    localStorage.setItem('authentication', keycloak.token);
+    localStorage.setItem('refreshToken', keycloak.refreshToken);
 
     //to regenerate token on expiry
     setTimeout(() => {
@@ -44,5 +44,15 @@ keycloak.init({ onLoad: 'login-required' }).then((authenticated) => {
     console.error("Authenticated Failed");
 });
 
+const doLogout = keycloak.logout;
+
+const doLogin = keycloak.login;
+
+const UserService = {
+    doLogout,
+    doLogin
+};
+
+export default UserService;
 
 // ReactDOM.render(<App />, document.getElementById('root'));
