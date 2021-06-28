@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import { Link, Redirect, Route, Switch } from 'react-router-dom';
 import ApplyJobPage from '../ApplyJobPage/ApplyJobPage';
 import PublishedJobPage from '../PublishedJobPage/PublishedJobPage';
+import CandidateProfilePage from '../CandidateProfilePage/CandidateProfilePage';
+import InterviewFeedbackPage from '../InterviewFeedbackPage/InterviewFeedbackPage';
+import UploadFeedbackPage from '../UploadFeedbackPage/UploadFeedbackPage';
 import EasyRecruitLogo from '../../../static/EasyRecruitLogo.svg';
 import './PageLayout.css';
-import CandidateProfilePage from '../CandidateProfilePage/CandidateProfilePage';
 
 const PageLayout = (props) => {
     const { pathname } = props.location;
@@ -35,7 +37,14 @@ const PageLayout = (props) => {
                     >
                         Publish Jobs
                     </Link>
-                </NavItem>      
+                </NavItem>
+                <NavItem>
+                    <Link
+                        to="/interviewFeedback"
+                    >
+                        Interview feedback
+                    </Link>
+                </NavItem>    
             </NavList>
         </Nav>
     );
@@ -83,6 +92,8 @@ const PageLayout = (props) => {
                 <Route exact path="/jobs" component={PublishedJobPage} />
                 <Route exact path="/jobs/:id" component={ApplyJobPage} />
                 <Route exact path="/profile" component={CandidateProfilePage} />
+                <Route exact path="/interviewFeedback" component={InterviewFeedbackPage} />
+                <Route exact path="/interviewFeedback/:interviewId" component={UploadFeedbackPage} />
             </Switch>
         </Page>
     )

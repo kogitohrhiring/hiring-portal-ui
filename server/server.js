@@ -20,7 +20,9 @@ app.use(
   app.get('/jobs', controller.getJobs)
   app.get('/jobs/:id', controller.getjob)
   app.post('/job',controller.publishJob)
-function setPort(port = 4000) {
+  app.get('/ongoingInteviews', controller.onGoingInterviews)
+  app.get('/interviewFeedback/:interviewId', controller.getInterviews)
+function setPort(port = 8080) {
     app.set('port', parseInt(port, 10));
   }
   
