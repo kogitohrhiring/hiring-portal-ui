@@ -98,5 +98,17 @@ module.exports = controller = {
     },
     publishJob:(req,res) =>{
         res.send();
+    },
+    getAppliedCandidates:(req,res)=>{
+        res.send([
+            {
+                candidateId:'1234',
+                name:'Vaibhav'
+            },
+            {
+                candidateId:'5678',
+                name:'Ajay'
+            }
+        ])
     }
 }
