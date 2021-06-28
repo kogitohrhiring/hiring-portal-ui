@@ -6,8 +6,10 @@ import PublishedJobPage from '../PublishedJobPage/PublishedJobPage';
 import CandidateProfilePage from '../CandidateProfilePage/CandidateProfilePage';
 import InterviewFeedbackPage from '../InterviewFeedbackPage/InterviewFeedbackPage';
 import UploadFeedbackPage from '../UploadFeedbackPage/UploadFeedbackPage';
+import ShortlistResumePage from '../ShortlistResumePage/ShortlistResumePage';
 import EasyRecruitLogo from '../../../static/EasyRecruitLogo.svg';
 import './PageLayout.css';
+import CandidatesApplied from 'src/components/Organisms/CandidatesApplied/CandidatesApplied';
 
 const PageLayout = (props) => {
     const { pathname } = props.location;
@@ -44,7 +46,14 @@ const PageLayout = (props) => {
                     >
                         Interview feedback
                     </Link>
-                </NavItem>    
+                </NavItem>   
+                <NavItem>
+                    <Link
+                        to="/shortlistResume"
+                    >
+                        Shortlist resume
+                    </Link>
+                </NavItem>   
             </NavList>
         </Nav>
     );
@@ -94,6 +103,8 @@ const PageLayout = (props) => {
                 <Route exact path="/profile" component={CandidateProfilePage} />
                 <Route exact path="/interviewFeedback" component={InterviewFeedbackPage} />
                 <Route exact path="/interviewFeedback/:interviewId" component={UploadFeedbackPage} />
+                <Route exact path="/shortlistResume" component={ShortlistResumePage} />
+                <Route exact path="/candidatesApplied/:jobId" component={CandidatesApplied} />
             </Switch>
         </Page>
     )

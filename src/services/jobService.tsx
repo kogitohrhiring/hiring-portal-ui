@@ -1,6 +1,7 @@
 import { Job } from '../dtos/Job';
 import config from '../config/config.json';
 import axios from 'axios';
+import {Candidate}  from '../dtos/Candidate';
 
   export const getPublishedJobList = () : Promise<Job[]> => { 
     return fetch(config.SERVER_URL + config.URL_SEPARATOR + 'jobs')
@@ -8,6 +9,7 @@ import axios from 'axios';
   }
 
   export const getJobDetails = (jobId : string) : Promise<Job> => {
+    console.log(config.SERVER_URL + config.URL_SEPARATOR + 'jobs/job' + config.URL_SEPARATOR + jobId)
     return fetch(config.SERVER_URL + config.URL_SEPARATOR + 'jobs/job' + config.URL_SEPARATOR + jobId)
             .then(data => data.json());
   }
@@ -41,5 +43,15 @@ import axios from 'axios';
     })
     .catch (error => {
       return error;
+    })
+  }
+
+  export const getAppliedCandidates =  (jobId):Promise<Candidate[]>=>{
+    return new Promise((resolve,reject)=>{
+       axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'appliedCandidates'+ config.URL_SEPARATOR + jobId).then((response)=>{
+        resolve(response.data)
+      }).catch((error)=>{
+        reject(error)
+      })
     })
   }

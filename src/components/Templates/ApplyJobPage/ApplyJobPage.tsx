@@ -7,7 +7,6 @@ import { PageTitle } from 'src/components/Atoms';
 
 const ApplyJobPage: React.FC<RouteComponentProps> = (props) =>{
         const id = props.match.params['id'];
-    
         return (
             <div id="applyJobView">
                 <React.Fragment>

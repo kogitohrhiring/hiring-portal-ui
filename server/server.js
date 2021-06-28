@@ -18,10 +18,12 @@ app.use(
     })
   );
   app.get('/jobs', controller.getJobs)
-  app.get('/jobs/:id', controller.getjob)
+  app.get('/jobs/job/:id', controller.getjob)
   app.post('/job',controller.publishJob)
   app.get('/ongoingInteviews', controller.onGoingInterviews)
   app.get('/interviewFeedback/:interviewId', controller.getInterviews)
+  app.get('/appliedCandidates/:jobId', controller.getAppliedCandidates)
+
 function setPort(port = 8080) {
     app.set('port', parseInt(port, 10));
   }
