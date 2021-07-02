@@ -34,6 +34,68 @@ module.exports = controller = {
             }
         );
     },
+    onGoingInterviews: async(req, res) => {
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+          }
+        await timeout(2000);
+        res.send(
+            [
+                {
+                    id: 'A12345',
+                    designation: 'Senior software engineer',
+                    role: 'Full stack developer',
+                    jobId: 'J43566',
+                    candidate: 'Saravana'
+                },
+                {
+                    id: 'A12346',
+                    designation: 'Senior software engineer',
+                    role: 'Java developer',
+                    jobId: 'J43566',
+                    candidate: 'Abhishek'
+                },
+                {
+                    id: 'A12347',
+                    designation: 'Senior software engineer',
+                    role: 'Dev Ops',
+                    jobId: 'J43566',
+                    candidate: 'Rahul',
+                }
+
+            ]
+        )
+    },
+    getInterviews: async(req, res) => {
+        function timeout(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+          }
+        await timeout(2000);
+        res.send(
+            [
+                {
+                    round: '1',
+                    name: 'IQ Test',
+                    rating: '9'
+                },
+                {
+                    round: '2',
+                    name: 'Written Test',
+                    rating: '8'
+                },
+                {
+                    round: '3',
+                    name: 'Technical Test',
+                    rating: '9'
+                },
+                {
+                    round: '4',
+                    name: 'Managerial Test',
+                    rating: 'NA'
+                }
+            ]
+        );
+    },
     publishJob:(req,res) =>{
         res.send();
     }

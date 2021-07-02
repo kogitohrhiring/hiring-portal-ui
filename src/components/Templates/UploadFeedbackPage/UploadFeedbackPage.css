@@ -1,0 +1,16 @@
+.upload-feedback-card-style {
+    height: 100%;
+}
+
+.upload-feedback-page__table td:not(:first-of-type) {
+    min-width: 10em;
+}
+
+.upload-feedback-page__grid {
+    margin-left: 1em;
+    margin-top: 2em;
+}
+
+.upload-feedback-page__grid .pf-l-grid__item {
+    margin-bottom: 1em!important;
+}

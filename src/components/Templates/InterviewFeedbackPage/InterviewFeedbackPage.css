@@ -1,0 +1,11 @@
+.interview-feedback-card-style {
+    height: 100%;
+}
+
+.interview-feedback-page__table td:not(:last-of-type) {
+    width: 20em !important;
+}
+
+.interview-feedback-page__table a {
+    display: block !important;
+}
