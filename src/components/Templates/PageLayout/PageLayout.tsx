@@ -1,5 +1,6 @@
 import {
   Brand,
+  Button,
   Nav,
   NavItem,
   NavList,
@@ -12,9 +13,15 @@ import React, { useState } from "react";
 import { Link, Redirect, Route, Switch } from "react-router-dom";
 import ApplyJobPage from "../ApplyJobPage/ApplyJobPage";
 import PublishedJobPage from "../PublishedJobPage/PublishedJobPage";
+import CandidateProfilePage from "../CandidateProfilePage/CandidateProfilePage";
+import InterviewFeedbackPage from "../InterviewFeedbackPage/InterviewFeedbackPage";
+import UploadFeedbackPage from "../UploadFeedbackPage/UploadFeedbackPage";
+import ShortlistResumePage from "../ShortlistResumePage/ShortlistResumePage";
 import EasyRecruitLogo from "../../../static/EasyRecruitLogo.svg";
 import "./PageLayout.css";
-import CandidateProfilePage from "../CandidateProfilePage/CandidateProfilePage";
+import CandidatesApplied from "src/components/Organisms/CandidatesApplied/CandidatesApplied";
+import { PrivateRoute } from "src/utils/privateRoute";
+import  UserService from "../../../services/keyCloakService";
 
 const PageLayout = (props) => {
   const { pathname } = props.location;
@@ -33,6 +40,12 @@ const PageLayout = (props) => {
         <NavItem isActive={pathname === "/jobs"}>
           <Link to="/jobs">Publish Jobs</Link>
         </NavItem>
+        <NavItem>
+          <Link to="/interviewFeedback">Interview feedback</Link>
+        </NavItem>
+        <NavItem>
+          <Link to="/shortlistResume">Shortlist resume</Link>
+        </NavItem>
       </NavList>
     </Nav>
   );
@@ -43,6 +56,14 @@ const PageLayout = (props) => {
 
   const BrandClick = () => {
     props.history.push("/");
+  };
+
+  const handleLogin = () => {
+    UserService.doLogin();
+  };
+
+  const handleLogout = () => {
+    UserService.doLogout();
   };
 
   const Header = (
@@ -56,9 +77,19 @@ const PageLayout = (props) => {
       }
       headerTools={
         <PageHeaderTools>
-          {/* <aboutLogoContext.Provider value={BrandSrc}>
-                <PageToolbar />
-              </aboutLogoContext.Provider> */}
+          {!UserService.isLoggedIn() ? (
+            <Link to="/login">
+              <Button variant="primary" onClick={handleLogin}>
+                Login
+              </Button>
+            </Link>
+          ) : (
+            <Link to="/logout">
+              <Button variant="danger" onClick={handleLogout}>
+                Log out
+              </Button>
+            </Link>
+          )}
         </PageHeaderTools>
       }
       showNavToggle
@@ -70,6 +101,7 @@ const PageLayout = (props) => {
   const Sidebar = (
     <PageSidebar nav={PageNav} isNavOpen={isNavOpen} theme="dark" />
   );
+
   return (
     <Page
       header={Header}
@@ -82,6 +114,28 @@ const PageLayout = (props) => {
         <Route exact path="/jobs" component={PublishedJobPage} />
         <Route exact path="/jobs/:id" component={ApplyJobPage} />
         <Route exact path="/profile" component={CandidateProfilePage} />
+        <PrivateRoute
+          roles={["hr"]}
+          exact
+          path="/interviewFeedback"
+          component={InterviewFeedbackPage}
+        />
+        <Route
+          exact
+          path="/interviewFeedback/:interviewId"
+          component={UploadFeedbackPage}
+        />
+        <PrivateRoute
+          roles={["hr"]}
+          exact
+          path="/shortlistResume"
+          component={ShortlistResumePage}
+        />
+        <Route
+          exact
+          path="/candidatesApplied/:jobId"
+          component={CandidatesApplied}
+        />
       </Switch>
     </Page>
   );
