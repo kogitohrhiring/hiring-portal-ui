@@ -24,8 +24,8 @@ import {Candidate}  from '../dtos/Candidate';
     }).then(response => response.status)
   };
 
-  export const onGoingInterviews = async(setData, setIsLoading) => {
-    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'ongoingInteviews')
+  export const onGoingInterviews = async(interviewerId, setData, setIsLoading) => {
+    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'interview-feedback?interviewerId=' + interviewerId)
     .then((res) => {
       setData([...res.data])
       setIsLoading(false);
@@ -36,7 +36,7 @@ import {Candidate}  from '../dtos/Candidate';
   }
 
   export const interviewFeedbacks = async(interviewId, setData, setIsLoading) => {
-    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'interviewFeedback/' + interviewId)
+    await axios.get(config.SERVER_URL + config.URL_SEPARATOR + 'interview-feedback/interview-round?interviewId=' + interviewId)
     .then((res) => {
       setData([...res.data])
       setIsLoading(false);

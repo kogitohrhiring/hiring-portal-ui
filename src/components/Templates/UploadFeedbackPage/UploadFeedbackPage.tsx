@@ -8,6 +8,7 @@ import './UploadFeedbackPage.css';
 
 const UploadFeedbackPage = (props) => {
     const id = props.match.params.interviewId;
+    console.log(id);
     const [columns, setColumns] = useState<string[]>([]);
     const [rows, setRows] = useState<any>([]);
     const [data, setData] = useState([]);
@@ -21,7 +22,7 @@ const UploadFeedbackPage = (props) => {
     useEffect(() => {
         setColumns(['Round', 'Name', 'Rating', 'Actions']);
         initLoad();
-    }, []);
+    }, [id]);
 
     const handleData = (content) => {
         const tempData = [];
