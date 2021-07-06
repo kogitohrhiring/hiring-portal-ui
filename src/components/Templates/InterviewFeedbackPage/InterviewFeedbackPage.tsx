@@ -17,7 +17,7 @@ const InterviewFeedbackPage = () => {
     const [data, setData] = useState([]);
     const initLoad = async() => {
         setIsLoading(true);
-        await onGoingInterviews(setData, setIsLoading);
+        await onGoingInterviews(2,setData, setIsLoading);
     }
 
     useEffect(() => {
@@ -27,17 +27,17 @@ const InterviewFeedbackPage = () => {
 
     const handleData = (content) => {
         const tempData = [];
-        const eleId = {title: content['id'] }
+        const eleId = {title: content['interviewId'] }
                 tempData.push(eleId);
         const ele = {
             title: (<>
             <Link to={{pathname: ''}}>
-                {`${content['designation']} (Job Id: ${content['jobId']})`}</Link>
-            <Link to={{pathname: ''}}>{`${content['role']}`} <ExternalLinkAltIcon/></Link>
+                {`${content['jobTitle']} (Job Id: ${content['jobId']})`}</Link>
+            <Link to={{pathname: ''}}>{`${content['jobRole']}`} <ExternalLinkAltIcon/></Link>
             </>)  
         }
         tempData.push(ele);
-        const eleCandidate = {title: content['candidate'], rowKey: 3 }
+        const eleCandidate = {title: content['applicantName'], rowKey: 3 }
                 tempData.push(eleCandidate);
         
         return tempData;
