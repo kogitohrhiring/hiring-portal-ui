@@ -10,6 +10,8 @@ import ShortlistResumePage from '../ShortlistResumePage/ShortlistResumePage';
 import EasyRecruitLogo from '../../../static/EasyRecruitLogo.svg';
 import './PageLayout.css';
 import CandidatesApplied from 'src/components/Organisms/CandidatesApplied/CandidatesApplied';
+import PageNotFound from '../PageNotFound/PageNotFound';
+import NoData from '../NoData/NoData';
 
 const PageLayout = (props) => {
     const { pathname } = props.location;
@@ -105,6 +107,8 @@ const PageLayout = (props) => {
                 <Route exact path="/interviewFeedback/:interviewId" component={UploadFeedbackPage} />
                 <Route exact path="/shortlistResume" component={ShortlistResumePage} />
                 <Route exact path="/candidatesApplied/:jobId" component={CandidatesApplied} />
+                <Route exact path="/NoData" component={NoData} />
+                <Route path="*" component={PageNotFound} />
             </Switch>
         </Page>
     )
