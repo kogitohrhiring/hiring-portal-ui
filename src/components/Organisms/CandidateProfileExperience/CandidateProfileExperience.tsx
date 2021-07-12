@@ -48,8 +48,8 @@ const CandidateProfileExperience = () => {
                     <GridItem span={12}>
                         {experienceData.map((data, index) => {
                             return (
-                                <>
-                                    <TextContent key={index}>
+                                <div key={index}>
+                                    <TextContent>
                                         <Text component={TextVariants.h6}>
                                             {data.company}
                                         </Text>
@@ -61,7 +61,7 @@ const CandidateProfileExperience = () => {
                                         </Text>
                                     </TextContent>
                                     <Divider style={{padding: '20px 0px'}}/>
-                                </>
+                                </div>
                             );
                         })}
 

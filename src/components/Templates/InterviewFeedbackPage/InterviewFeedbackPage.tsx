@@ -57,7 +57,7 @@ const InterviewFeedbackPage = () => {
         return [
           {
             title: 'view',
-            onClick: (event, rowId, rowData, extra) => history.push('/interviewFeedback/' + rowData['0'].title)
+            onClick: (event, rowId, rowData, extra) => history.push({pathname:'/interviewFeedback/' + rowData['0'].title})
           }
         ];
       };

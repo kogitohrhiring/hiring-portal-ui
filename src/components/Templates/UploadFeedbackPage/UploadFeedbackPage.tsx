@@ -21,15 +21,15 @@ const UploadFeedbackPage = (props) => {
     useEffect(() => {
         setColumns(['Round', 'Name', 'Rating', 'Actions']);
         initLoad();
-    }, []);
+    }, [props.match.params.interviewId]);
 
     const handleData = (content) => {
         const tempData = [];
         for (const i in content) {
-            if (i === 'round') {
+            if (i === 'interviewRoundId') {
                 const ele = { title: content[i] }
                 tempData.push(ele);
-            } else if (i === 'name') {
+            } else if (i === 'interviewRoundName') {
                 const ele = { title: content[i] }
                 tempData.push(ele);
             } else if (i === 'rating') {
@@ -37,9 +37,9 @@ const UploadFeedbackPage = (props) => {
                 tempData.push(ele);
             }
         }
-        if (content['rating'] === 'NA') {
+        if (content['rating'] === 'NA'|| content['rating'] === null) {
             const ele = {
-                title: <Button variant="plain" aria-label="Action" onClick={() => console.log('edit clicked')}>
+                title: <Button variant="plain" aria-label="Action" onClick={() => handleEditModalToggle()}>
                     <EditIcon />
                 </Button>
             }
@@ -64,7 +64,7 @@ const UploadFeedbackPage = (props) => {
             setRows(temp)
         }
     }, [data])
-
+    //@ts-ignore
     const initLoad = async () => {
         setIsLoading(true);
         await interviewFeedbacks(id, setData, setIsLoading)
@@ -93,13 +93,13 @@ const UploadFeedbackPage = (props) => {
         }
         return items;
     }
-
+    //@ts-ignore
     const editModal = () => {
         return (
             <Modal
                 variant={ModalVariant.large}
                 title="Interview Feedback"
-                isOpen={isModalOpen}
+                isOpen={isEditModalOpen}
                 onClose={handleEditModalToggle}
                 actions={[
                     <Button key="confirm" variant="primary" onClick={handleEditModalToggle}>
@@ -227,7 +227,6 @@ const UploadFeedbackPage = (props) => {
                     </GridItem>
                 </Grid>
                 <TextArea value={value} style={{ height: '200px' }} isDisabled aria-label="text area example" />
-
             </Modal>
         )
     }
@@ -287,12 +286,13 @@ const UploadFeedbackPage = (props) => {
                                 <TableHeader />
                                 <TableBody />
                             </Table>
+                            {viewModal()}
+                            {isEditModalOpen && editModal()}
                         </>) : (
                             <LoadingSpinner spinnerText="Loading interviews" />
                         )}
                 </Card>
-                {viewModal()}
-                {editModal()}
+                
             </PageSection>
         </React.Fragment>
     )
