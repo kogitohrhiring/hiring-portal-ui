@@ -37,7 +37,7 @@ const UploadFeedbackPage = (props) => {
                 tempData.push(ele);
             }
         }
-        if (content['rating'] === 'NA'|| content['rating'] === null) {
+        if (content['rating'] === null|| content['rating'] === 0) {
             const ele = {
                 title: <Button variant="plain" aria-label="Action" onClick={() => handleEditModalToggle()}>
                     <EditIcon />
