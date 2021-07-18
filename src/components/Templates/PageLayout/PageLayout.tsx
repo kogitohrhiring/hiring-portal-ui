@@ -23,17 +23,21 @@ import CandidatesApplied from "src/components/Organisms/CandidatesApplied/Candid
 import { PrivateRoute } from "src/utils/privateRoute";
 import UserService from "../../../services/keyCloakService";
 import {
+  Avatar,
   Dropdown,
   DropdownToggle,
   DropdownItem,
+  DropdownGroup,
   DropdownSeparator,
 } from "@patternfly/react-core";
-import ThIcon from "@patternfly/react-icons/dist/js/icons/th-icon";
+import avatarImg from "../../../static/avatar.svg";
+import { CaretDownIcon } from "@patternfly/react-icons";
 
 const PageLayout = (props) => {
   const { pathname } = props.location;
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isIconDropdownOpen, setIsIconDropdownOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(UserService.isLoggedIn);
   const pageId = "main-content-page-layout-default-nav";
 
   const PageNav = (
@@ -67,7 +71,7 @@ const PageLayout = (props) => {
     onFocus();
   };
   const onFocus = () => {
-    const element = document.getElementById("toggle-id-7");
+    const element = document.getElementById("toggle-id-9");
     element.focus();
   };
 
@@ -77,32 +81,38 @@ const PageLayout = (props) => {
 
   const handleLogin = () => {
     UserService.doLogin();
+    setIsLoggedIn(!isLoggedIn);
   };
 
   const handleLogout = () => {
     UserService.doLogout();
+    setIsLoggedIn(!isLoggedIn);
   };
 
   const dropdownItems = [
-    <DropdownItem key="/profile">
-      <Link to="/profile">Profile</Link>
-    </DropdownItem>,
+    <DropdownGroup key="group 1">
+      <DropdownItem key="group 1 profile" component="div">
+        <Link to="/profile">Profile</Link>
+      </DropdownItem>
+    </DropdownGroup>,
     <DropdownSeparator key="separator" />,
-    <DropdownItem key="separated action" component="button">
-      {!UserService.isLoggedIn() ? (
-        <Link to="/login">
-          <Button variant="primary" onClick={handleLogin}>
-            Login
-          </Button>
-        </Link>
-      ) : (
-        <Link to="/logout">
-          <Button variant="danger" onClick={handleLogout}>
-            Log out
-          </Button>
-        </Link>
-      )}
-    </DropdownItem>,
+    <DropdownGroup key="group 2">
+      <DropdownItem key="group 2 logout" component="button">
+        {!isLoggedIn ? (
+          <Link to="/login">
+            <Button variant="primary" onClick={handleLogin}>
+              Login
+            </Button>
+          </Link>
+        ) : (
+          <Link to="/logout">
+            <Button variant="danger" onClick={handleLogout}>
+              Log out
+            </Button>
+          </Link>
+        )}
+      </DropdownItem>
+    </DropdownGroup>,
   ];
 
   const Header = (
@@ -120,18 +130,16 @@ const PageLayout = (props) => {
             onSelect={onIconDropdownSelect}
             toggle={
               <DropdownToggle
-                toggleIndicator={null}
+                id="toggle-id-9"
                 onToggle={onDropdownToggle}
-                aria-label="Applications"
-                id="toggle-id-7"
+                toggleIndicator={CaretDownIcon}
+                icon={<Avatar src={avatarImg} alt="avatar"></Avatar>}
               >
-                <ThIcon />
+                Ned Username
               </DropdownToggle>
             }
             isOpen={isIconDropdownOpen}
-            isPlain
             dropdownItems={dropdownItems}
-            position={"right"}
           />
         </PageHeaderTools>
       }
