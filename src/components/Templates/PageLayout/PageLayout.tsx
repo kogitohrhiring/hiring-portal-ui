@@ -37,7 +37,6 @@ const PageLayout = (props) => {
   const { pathname } = props.location;
   const [isNavOpen, setIsNavOpen] = useState(true);
   const [isIconDropdownOpen, setIsIconDropdownOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(UserService.isLoggedIn);
   const pageId = "main-content-page-layout-default-nav";
 
   const PageNav = (
@@ -81,13 +80,11 @@ const PageLayout = (props) => {
 
   const handleLogin = () => {
     UserService.doLogin();
-    setIsLoggedIn(!isLoggedIn);
   };
 
   const handleLogout = () => {
     UserService.doLogout();
-    setIsLoggedIn(!isLoggedIn);
-  };
+  }
 
   const dropdownItems = [
     <DropdownGroup key="group 1">
@@ -98,7 +95,7 @@ const PageLayout = (props) => {
     <DropdownSeparator key="separator" />,
     <DropdownGroup key="group 2">
       <DropdownItem key="group 2 logout" component="button">
-        {!isLoggedIn ? (
+        {!UserService.isLoggedIn() ? (
           <Link to="/login">
             <Button variant="primary" onClick={handleLogin}>
               Login
@@ -135,7 +132,7 @@ const PageLayout = (props) => {
                 toggleIndicator={CaretDownIcon}
                 icon={<Avatar src={avatarImg} alt="avatar"></Avatar>}
               >
-                Ned Username
+                {UserService.isLoggedIn()?UserService.getUsername():""}
               </DropdownToggle>
             }
             isOpen={isIconDropdownOpen}

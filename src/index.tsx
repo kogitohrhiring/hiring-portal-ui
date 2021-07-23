@@ -6,4 +6,5 @@ import UserService from "./services/keyCloakService";
 
 const renderApp = () => ReactDOM.render(<App />, document.getElementById('root'));
 
-UserService.initKeycloak(renderApp);
+UserService.initKeycloak(()=>{});
+renderApp();
