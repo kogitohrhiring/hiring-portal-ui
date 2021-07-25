@@ -15,7 +15,7 @@ import { ExclamationCircleIcon } from '@patternfly/react-icons';
 
 interface IOwnProps {
   error: any;
-  resetErrorBoundary: () => void;
+  resetErrorBoundary?: () => void;
 }
 const ErrorComponent: React.FC<IOwnProps> = ({
   error, resetErrorBoundary
@@ -47,10 +47,10 @@ const ErrorComponent: React.FC<IOwnProps> = ({
           <ClipboardCopy
             isCode
             variant={ClipboardCopyVariant.expansion}
-            isExpanded={true}
+            isExpanded={false}
             className="pf-u-text-align-left"
           >
-            {JSON.stringify(error.message)}
+            {error.message}
           </ClipboardCopy>
         </EmptyStateBody>
       )}
