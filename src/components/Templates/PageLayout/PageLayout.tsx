@@ -19,8 +19,8 @@ import UploadFeedbackPage from "../UploadFeedbackPage/UploadFeedbackPage";
 import ShortlistResumePage from "../ShortlistResumePage/ShortlistResumePage";
 import EasyRecruitLogo from "../../../static/EasyRecruitLogo.svg";
 import "./PageLayout.css";
-import CandidatesApplied from "src/components/Organisms/CandidatesApplied/CandidatesApplied";
-import { PrivateRoute } from "src/utils/privateRoute";
+import CandidatesApplied from "../../../components/Organisms/CandidatesApplied/CandidatesApplied";
+import { PrivateRoute } from "../../../utils/privateRoute";
 import UserService from "../../../services/keyCloakService";
 import {
   Avatar,
@@ -84,7 +84,7 @@ const PageLayout = (props) => {
 
   const handleLogout = () => {
     UserService.doLogout();
-  }
+  };
 
   const dropdownItems = [
     <DropdownGroup key="group 1">
@@ -132,7 +132,7 @@ const PageLayout = (props) => {
                 toggleIndicator={CaretDownIcon}
                 icon={<Avatar src={avatarImg} alt="avatar"></Avatar>}
               >
-                {UserService.isLoggedIn()?UserService.getUsername():""}
+                {UserService.isLoggedIn() ? UserService.getUsername() : "Username"}
               </DropdownToggle>
             }
             isOpen={isIconDropdownOpen}
@@ -168,7 +168,8 @@ const PageLayout = (props) => {
           path="/interviewFeedback"
           component={InterviewFeedbackPage}
         />
-        <Route
+        <PrivateRoute
+          roles={["hr"]}
           exact
           path="/interviewFeedback/:interviewId"
           component={UploadFeedbackPage}
@@ -179,7 +180,8 @@ const PageLayout = (props) => {
           path="/shortlistResume"
           component={ShortlistResumePage}
         />
-        <Route
+        <PrivateRoute
+          roles={["hr"]}
           exact
           path="/candidatesApplied/:jobId"
           component={CandidatesApplied}
